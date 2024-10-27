@@ -3,6 +3,7 @@ A Flappy Bird Clone.
 
 My game #1 of the [20 Games Challenge](https://20_games_challenge.gitlab.io/).
 
+[Play on itch.io](https://mjkjr.itch.io/buzzy-bee-flappy-bird-clone)
 
 ## 👋 Acknowledgments
 
