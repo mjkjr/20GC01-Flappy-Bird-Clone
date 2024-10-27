@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cfd6fay1l7b2i"]
 
 [ext_resource type="Script" path="res://obstacle.gd" id="1_e2sty"]
-[ext_resource type="Texture2D" uid="uid://crv4a6w0a02gm" path="res://art/obstacles/logs.png" id="2_xv750"]
+[ext_resource type="Texture2D" uid="uid://crv4a6w0a02gm" path="res://assets/obstacles/logs.png" id="2_xv750"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlf1w"]
 radius = 48.0

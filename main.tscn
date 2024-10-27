@@ -1,13 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhnil43uuy0kv"]
+[gd_scene load_steps=19 format=3 uid="uid://bhnil43uuy0kv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_m0mjo"]
-[ext_resource type="Texture2D" uid="uid://e4x04pcmxbq7" path="res://art/bg/mountains_farground.png" id="2_scdce"]
-[ext_resource type="Texture2D" uid="uid://bxy2twvcpflow" path="res://art/bg/mountains_midground.png" id="3_00s4s"]
-[ext_resource type="Texture2D" uid="uid://cyul2gnnyw0lv" path="res://art/bg/clouds_farground.png" id="3_m6u45"]
-[ext_resource type="Texture2D" uid="uid://chy1scu6qteo4" path="res://art/bg/clouds_midground.png" id="3_po7ls"]
-[ext_resource type="Texture2D" uid="uid://cnyqsrsgdj0lq" path="res://art/bg/mountains_foreground.png" id="4_crlcc"]
-[ext_resource type="Texture2D" uid="uid://bghgwmtllx3xa" path="res://art/bg/sky_color.png" id="5_3pa4i"]
+[ext_resource type="Texture2D" uid="uid://e4x04pcmxbq7" path="res://assets/bg/mountains_farground.png" id="2_scdce"]
+[ext_resource type="Texture2D" uid="uid://bxy2twvcpflow" path="res://assets/bg/mountains_midground.png" id="3_00s4s"]
+[ext_resource type="Texture2D" uid="uid://cyul2gnnyw0lv" path="res://assets/bg/clouds_farground.png" id="3_m6u45"]
+[ext_resource type="Texture2D" uid="uid://chy1scu6qteo4" path="res://assets/bg/clouds_midground.png" id="3_po7ls"]
+[ext_resource type="Texture2D" uid="uid://cnyqsrsgdj0lq" path="res://assets/bg/mountains_foreground.png" id="4_crlcc"]
+[ext_resource type="Texture2D" uid="uid://bghgwmtllx3xa" path="res://assets/bg/sky_color.png" id="5_3pa4i"]
 [ext_resource type="PackedScene" uid="uid://bq3rbdeqh4hd7" path="res://player.tscn" id="8_l485u"]
+[ext_resource type="AudioStream" uid="uid://x4ocwy8uimtc" path="res://assets/audio/JDSherbert - Minigame Music Pack - A Minor Distraction.mp3" id="9_y00jp"]
+[ext_resource type="AudioStream" uid="uid://cvdxcg0r1sef7" path="res://assets/audio/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="10_r3d1e"]
+[ext_resource type="AudioStream" uid="uid://bbj5iivslrgsi" path="res://assets/audio/JDSherbert - Ultimate UI SFX Pack - Swipe - 2.wav" id="11_2uncb"]
+[ext_resource type="AudioStream" uid="uid://ca0roxp444x8i" path="res://assets/audio/JDSherbert - Ultimate UI SFX Pack - Cancel - 2.wav" id="12_jorwa"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fljj0"]
 a = Vector2(0, -10)
@@ -144,38 +148,43 @@ columns = 2
 
 [node name="LabelYourScore" type="Label" parent="UI/Score"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 48
 text = "Your Score: "
 
 [node name="YourScore" type="Label" parent="UI/Score"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 48
 text = "0"
 
 [node name="LabelHighScore" type="Label" parent="UI/Score"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 48
 text = "High Score: "
 
 [node name="HighScore" type="Label" parent="UI/Score"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 48
 text = "0"
 
 [node name="Instructions" type="Label" parent="UI"]
 visible = false
-anchors_preset = 4
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -41.5
-offset_right = 1171.0
-offset_bottom = 41.5
+offset_left = -550.0
+offset_top = -79.0
+offset_right = -161.0
+offset_bottom = 80.0
+grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 72
 theme_override_styles/normal = SubResource("StyleBoxEmpty_riqxc")
 text = "Click anywhere
 on the screen to fly"
+horizontal_alignment = 2
 
 [node name="StartScreen" type="ColorRect" parent="UI"]
 offset_right = 1920.0
@@ -203,10 +212,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_t7vh2")
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/StartScreen/CenterContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/StartScreen/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="UI/StartScreen/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 72
+theme_override_font_sizes/font_size = 84
 text = "Buzzy Bee"
 
 [node name="HSeparator" type="HSeparator" parent="UI/StartScreen/CenterContainer/PanelContainer/VBoxContainer"]
@@ -365,6 +374,24 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_o8rgy")
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Quit"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("9_y00jp")
+volume_db = -6.0
+
+[node name="PopupOpen" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("10_r3d1e")
+bus = &"Fx"
+
+[node name="PopupClose" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_2uncb")
+bus = &"Fx"
+
+[node name="Fail" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_jorwa")
+bus = &"Fx"
 
 [connection signal="body_entered" from="Boundaries/Bottom" to="." method="_on_collision"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

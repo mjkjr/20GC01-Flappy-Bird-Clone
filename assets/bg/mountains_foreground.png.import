@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxy2twvcpflow"
-path="res://.godot/imported/mountains_midground.png-162262eb21285254e3be3f01f602e136.ctex"
+uid="uid://cnyqsrsgdj0lq"
+path="res://.godot/imported/mountains_foreground.png-477f580fd0899215c07773fbaa0e9314.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bg/mountains_midground.png"
-dest_files=["res://.godot/imported/mountains_midground.png-162262eb21285254e3be3f01f602e136.ctex"]
+source_file="res://assets/bg/mountains_foreground.png"
+dest_files=["res://.godot/imported/mountains_foreground.png-477f580fd0899215c07773fbaa0e9314.ctex"]
 
 [params]
 

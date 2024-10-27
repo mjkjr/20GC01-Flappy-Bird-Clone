@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daomjehgglo5j"
-path="res://.godot/imported/bee.png-b6aad33c7460961d446455c4cea2404a.ctex"
+uid="uid://bghgwmtllx3xa"
+path="res://.godot/imported/sky_color.png-a38df17b0a496735496f73a6357a6cc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character/bee.png"
-dest_files=["res://.godot/imported/bee.png-b6aad33c7460961d446455c4cea2404a.ctex"]
+source_file="res://assets/bg/sky_color.png"
+dest_files=["res://.godot/imported/sky_color.png-a38df17b0a496735496f73a6357a6cc4.ctex"]
 
 [params]
 

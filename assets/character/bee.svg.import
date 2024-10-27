@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnyqsrsgdj0lq"
-path="res://.godot/imported/mountains_foreground.png-99f7b5219b4ace10b2931353b79c6c65.ctex"
+uid="uid://cmtjr00xxf7m0"
+path="res://.godot/imported/bee.svg-5072e47c9f4c532b8e29757710a39180.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bg/mountains_foreground.png"
-dest_files=["res://.godot/imported/mountains_foreground.png-99f7b5219b4ace10b2931353b79c6c65.ctex"]
+source_file="res://assets/character/bee.svg"
+dest_files=["res://.godot/imported/bee.svg-5072e47c9f4c532b8e29757710a39180.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

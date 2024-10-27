@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chy1scu6qteo4"
-path="res://.godot/imported/clouds_midground.png-ffb404e3effa28e2a451239630c64b4e.ctex"
+uid="uid://brmgxe1gfpw2e"
+path="res://.godot/imported/logs.svg-3fa71f27149a60909e73cc35880435be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bg/clouds_midground.png"
-dest_files=["res://.godot/imported/clouds_midground.png-ffb404e3effa28e2a451239630c64b4e.ctex"]
+source_file="res://assets/obstacles/logs.svg"
+dest_files=["res://.godot/imported/logs.svg-3fa71f27149a60909e73cc35880435be.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

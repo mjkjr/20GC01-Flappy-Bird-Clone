@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e4x04pcmxbq7"
-path="res://.godot/imported/mountains_farground.png-983d1ad27591287d6e849803eaecefc6.ctex"
+uid="uid://daomjehgglo5j"
+path="res://.godot/imported/bee.png-316bf8397f11bcb3da575012d7a4fd08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bg/mountains_farground.png"
-dest_files=["res://.godot/imported/mountains_farground.png-983d1ad27591287d6e849803eaecefc6.ctex"]
+source_file="res://assets/character/bee.png"
+dest_files=["res://.godot/imported/bee.png-316bf8397f11bcb3da575012d7a4fd08.ctex"]
 
 [params]
 

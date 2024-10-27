@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyul2gnnyw0lv"
-path="res://.godot/imported/clouds_farground.png-bc00bd9c67c3fb099034ed27dfd65039.ctex"
+uid="uid://chy1scu6qteo4"
+path="res://.godot/imported/clouds_midground.png-4fd856b4cd6d39350830b9d216fe794b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bg/clouds_farground.png"
-dest_files=["res://.godot/imported/clouds_farground.png-bc00bd9c67c3fb099034ed27dfd65039.ctex"]
+source_file="res://assets/bg/clouds_midground.png"
+dest_files=["res://.godot/imported/clouds_midground.png-4fd856b4cd6d39350830b9d216fe794b.ctex"]
 
 [params]
 

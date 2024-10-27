@@ -74,6 +74,7 @@ func restart() -> void:
 
 func start() -> void:
 	game_state = GameState.PLAYING
+	$Audio/PopupClose.play()
 	$UI/StartScreen.visible = false
 	$Player.visible = true
 	$Player.process_mode = PROCESS_MODE_INHERIT
@@ -82,10 +83,12 @@ func start() -> void:
 	tween_instructions = get_tree().create_tween()
 	tween_instructions.tween_property($UI/Instructions, "modulate", Color.TRANSPARENT, 5)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	$Audio/Music.play()
 
 
 func game_over() -> void:
 	game_state = GameState.GAMEOVER
+	$Audio/Fail.play()
 	$Timer.stop()
 	$UI/GameOverScreen.visible = true
 	$Player.process_mode = PROCESS_MODE_DISABLED
@@ -93,26 +96,31 @@ func game_over() -> void:
 	$Boundaries/Bottom/CollisionShape2D.set_deferred("disabled", true)
 	save_high_score()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$Audio/Music.stop()
 
 
 func pause() -> void:
 	game_state = GameState.PAUSED
+	$Audio/PopupOpen.play()
 	$Timer.paused = true
 	$UI/PauseScreen.visible = true
 	$Player.visible = false
 	$Player.process_mode = PROCESS_MODE_DISABLED
 	get_tree().set_group("obstacles", "process_mode", PROCESS_MODE_DISABLED)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$Audio/Music.stream_paused = true
 
 
 func unpause() -> void:
 	game_state = GameState.PLAYING
+	$Audio/PopupClose.play()
 	$UI/PauseScreen.visible = false
 	$Player.visible = true
 	$Player.process_mode = PROCESS_MODE_INHERIT
 	get_tree().set_group("obstacles", "process_mode", PROCESS_MODE_INHERIT)
 	$Timer.paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	$Audio/Music.stream_paused = false
 
 
 func spawn_obstacle() -> void:

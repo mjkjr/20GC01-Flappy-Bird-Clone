@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmtjr00xxf7m0"
-path="res://.godot/imported/bee.svg-92caf252a4f940a50f1afe8a40d2fc41.ctex"
+uid="uid://e4x04pcmxbq7"
+path="res://.godot/imported/mountains_farground.png-9bd8c8ffb3e265d58938d968adedfdee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character/bee.svg"
-dest_files=["res://.godot/imported/bee.svg-92caf252a4f940a50f1afe8a40d2fc41.ctex"]
+source_file="res://assets/bg/mountains_farground.png"
+dest_files=["res://.godot/imported/mountains_farground.png-9bd8c8ffb3e265d58938d968adedfdee.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

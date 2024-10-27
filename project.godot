@@ -23,6 +23,10 @@ window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom_font="res://assets/fonts/Amatic-Bold.ttf"
+
 [input]
 
 Flap={
