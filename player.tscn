@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://bq3rbdeqh4hd7"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_2iwip"]
+[ext_resource type="Texture2D" uid="uid://daomjehgglo5j" path="res://art/character/bee.png" id="2_qgud6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3vqh"]
+atlas = ExtResource("2_qgud6")
+region = Rect2(0, 0, 119, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffc3j"]
+atlas = ExtResource("2_qgud6")
+region = Rect2(129, 0, 119, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ve7"]
+atlas = ExtResource("2_qgud6")
+region = Rect2(258, 0, 119, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0wvt"]
+atlas = ExtResource("2_qgud6")
+region = Rect2(387, 0, 119, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svnte"]
+atlas = ExtResource("2_qgud6")
+region = Rect2(516, 0, 119, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fohg1"]
+atlas = ExtResource("2_qgud6")
+region = Rect2(645, 0, 119, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rfndg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3vqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffc3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7ve7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0wvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svnte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fohg1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7aw5k"]
+radius = 45.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(960, 540)
+collision_mask = 6
+script = ExtResource("1_2iwip")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rfndg")
+autoplay = "default"
+frame_progress = 0.390788
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9, -1)
+shape = SubResource("CircleShape2D_7aw5k")

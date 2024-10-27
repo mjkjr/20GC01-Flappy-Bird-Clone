@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfd6fay1l7b2i"]
+
+[ext_resource type="Script" path="res://obstacle.gd" id="1_e2sty"]
+[ext_resource type="Texture2D" uid="uid://crv4a6w0a02gm" path="res://art/obstacles/logs.png" id="2_xv750"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlf1w"]
+radius = 48.0
+height = 897.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1r0hb"]
+radius = 48.0
+height = 897.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xp344"]
+b = Vector2(0, 1080)
+
+[node name="Solid" type="Area2D" groups=["obstacles"]]
+collision_layer = 2
+script = ExtResource("1_e2sty")
+
+[node name="Upper" type="Area2D" parent="."]
+position = Vector2(0, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Upper"]
+texture = ExtResource("2_xv750")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Upper"]
+shape = SubResource("CapsuleShape2D_hlf1w")
+
+[node name="Lower" type="Area2D" parent="."]
+position = Vector2(0, 1120)
+
+[node name="Sprite2D" type="Sprite2D" parent="Lower"]
+texture = ExtResource("2_xv750")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower"]
+shape = SubResource("CapsuleShape2D_1r0hb")
+
+[node name="Threshold" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Threshold"]
+shape = SubResource("SegmentShape2D_xp344")
