@@ -6,6 +6,8 @@ const OBSTACLE = preload("res://obstacle.tscn")
 
 var game_state: GameState = GameState.OPENING
 
+var tween_instructions: Tween
+
 var score: int = 0
 var high_score: int = 0
 
@@ -65,7 +67,8 @@ func restart() -> void:
 	get_tree().call_group("obstacles", "free")
 	$Player.set_position(Vector2(1920/2.0, 1080/2.0))
 	$Player.set_velocity(Vector2(0,0))
-	$UI/Instructions.set_modulate(Color.WHITE)
+	tween_instructions.kill()
+	$UI/Instructions.set_modulate(Color(1, 1, 1, 1))
 	start()
 
 
@@ -76,8 +79,9 @@ func start() -> void:
 	$Player.process_mode = PROCESS_MODE_INHERIT
 	$Timer.start()
 	$UI/Instructions.visible = true
-	var tween = get_tree().create_tween()
-	tween.tween_property($UI/Instructions, "modulate", Color.TRANSPARENT, 3)
+	tween_instructions = get_tree().create_tween()
+	tween_instructions.tween_property($UI/Instructions, "modulate", Color.TRANSPARENT, 5)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func game_over() -> void:
@@ -88,6 +92,7 @@ func game_over() -> void:
 	(func(): get_tree().set_group("obstacles", "process_mode", PROCESS_MODE_DISABLED)).call_deferred()
 	$Boundaries/Bottom/CollisionShape2D.set_deferred("disabled", true)
 	save_high_score()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func pause() -> void:
@@ -97,6 +102,7 @@ func pause() -> void:
 	$Player.visible = false
 	$Player.process_mode = PROCESS_MODE_DISABLED
 	get_tree().set_group("obstacles", "process_mode", PROCESS_MODE_DISABLED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func unpause() -> void:
@@ -106,6 +112,7 @@ func unpause() -> void:
 	$Player.process_mode = PROCESS_MODE_INHERIT
 	get_tree().set_group("obstacles", "process_mode", PROCESS_MODE_INHERIT)
 	$Timer.paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func spawn_obstacle() -> void:

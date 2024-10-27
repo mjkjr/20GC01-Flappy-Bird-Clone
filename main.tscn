@@ -174,7 +174,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxEmpty_riqxc")
-text = "Tap / Click anywhere
+text = "Click anywhere
 on the screen to fly"
 
 [node name="StartScreen" type="ColorRect" parent="UI"]
