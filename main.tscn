@@ -95,29 +95,29 @@ wait_time = 10.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="GridContainer" type="GridContainer" parent="UI"]
+[node name="Score" type="GridContainer" parent="UI"]
 offset_left = 24.0
 offset_top = 20.0
 offset_right = 278.0
 offset_bottom = 149.0
 columns = 2
 
-[node name="LabelScore" type="Label" parent="UI/GridContainer"]
+[node name="LabelYourScore" type="Label" parent="UI/Score"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Score: "
+text = "Your Score: "
 
-[node name="Score" type="Label" parent="UI/GridContainer"]
+[node name="YourScore" type="Label" parent="UI/Score"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "0"
 
-[node name="LabelHighScore" type="Label" parent="UI/GridContainer"]
+[node name="LabelHighScore" type="Label" parent="UI/Score"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "High Score: "
 
-[node name="HighScore" type="Label" parent="UI/GridContainer"]
+[node name="HighScore" type="Label" parent="UI/Score"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "0"
@@ -155,6 +155,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Press [spacebar] to play"
+
+[node name="Label3" type="Label" parent="UI/StartScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 36
+text = "Press [Escape] to quit"
 
 [node name="PauseScreen" type="ColorRect" parent="UI"]
 visible = false
@@ -226,6 +233,32 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 72
 text = "GAME OVER!"
+
+[node name="Score" type="GridContainer" parent="UI/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="UI/GameOverScreen/CenterContainer/VBoxContainer/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Your Score: "
+
+[node name="YourScore" type="Label" parent="UI/GameOverScreen/CenterContainer/VBoxContainer/Score"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "0"
+
+[node name="Label3" type="Label" parent="UI/GameOverScreen/CenterContainer/VBoxContainer/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "High Score: "
+
+[node name="HighScore" type="Label" parent="UI/GameOverScreen/CenterContainer/VBoxContainer/Score"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "0"
 
 [node name="Label2" type="Label" parent="UI/GameOverScreen/CenterContainer/VBoxContainer"]
 layout_mode = 2

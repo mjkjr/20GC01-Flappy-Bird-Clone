@@ -34,9 +34,11 @@ func _process(delta: float) -> void:
 		elif (
 				game_state == GameState.PAUSED
 				or game_state == GameState.GAMEOVER
+				or game_state == GameState.OPENING
 		):
 			get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
-			
+	
+	# Background parallax effect:
 	if game_state == GameState.PLAYING:
 		$Background/ForegroundMountains.scroll_offset.x -= delta * 200
 		$Background/MidgroundMountains.scroll_offset.x -= delta * 150
@@ -113,19 +115,43 @@ func unpause() -> void:
 	$Timer2.paused = false
 
 
+func spawn_obstacle() -> void:
+	var obstacle: Node2D = OBSTACLE.instantiate()
+	# vary sprites
+	obstacle.get_node("Upper/Sprite2D").frame = randi_range(0,1)
+	obstacle.get_node("Lower/Sprite2D").frame = randi_range(0,1)
+	# start just off the edge of the screen
+	obstacle.position.x = get_viewport_rect().size.x + obstacle.get_width()
+	# vary vertical positioning
+	var py = randf_range(-350, 350)
+	obstacle.get_node("Upper").position.y = py
+	obstacle.get_node("Lower").position.y = py + 1080
+	# add to scene and connect signals
+	add_child(obstacle)
+	obstacle.get_node("Upper").body_entered.connect(_on_collision)
+	obstacle.get_node("Lower").body_entered.connect(_on_collision)
+	obstacle.get_node("Threshold").body_entered.connect(_on_score)
+
+
 func set_score(num: int) -> void:
 	score = num
-	$UI/GridContainer/Score.text = str(score)
+	var strScore = str(score)
+	$UI/Score/YourScore.text = strScore
+	%YourScore.text = strScore
 
 
 func increment_score(amount: int = 1) -> void:
 	score += amount
-	$UI/GridContainer/Score.text = str(score)
+	var strScore = str(score)
+	$UI/Score/YourScore.text = strScore
+	%YourScore.text = strScore
 
 
 func set_high_score(num: int) -> void:
 	high_score = num
-	$UI/GridContainer/HighScore.text = str(high_score)
+	var strHighScore = str(high_score)
+	$UI/Score/HighScore.text = strHighScore
+	%HighScore.text = strHighScore
 
 
 func _on_score(_body: Node2D) -> void:
@@ -140,18 +166,7 @@ func _on_collision(_body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	var obstacle: Node2D = OBSTACLE.instantiate()
-	obstacle.position.x = get_viewport_rect().size.x + (96*.5)
-	
-	obstacle.get_node("Upper/Sprite2D").frame = randi_range(0,1)
-	obstacle.get_node("Lower/Sprite2D").frame = randi_range(0,1)
-	var py = randf_range(-350, 350)
-	obstacle.get_node("Upper").position.y = py
-	obstacle.get_node("Lower").position.y = py + 1080
-	add_child(obstacle)
-	obstacle.get_node("Upper").body_entered.connect(_on_collision)
-	obstacle.get_node("Lower").body_entered.connect(_on_collision)
-	obstacle.get_node("Threshold").body_entered.connect(_on_score)
+	spawn_obstacle()	
 
 
 func _on_timer_2_timeout() -> void:
