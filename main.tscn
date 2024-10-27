@@ -228,16 +228,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Play"
 
-[node name="HSeparator2" type="HSeparator" parent="UI/StartScreen/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_o8rgy")
-
-[node name="ButtonQuit" type="Button" parent="UI/StartScreen/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Quit"
-
 [node name="PauseScreen" type="ColorRect" parent="UI"]
 visible = false
 offset_right = 1920.0
@@ -280,16 +270,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_o8rgy")
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Resume"
-
-[node name="HSeparator2" type="HSeparator" parent="UI/PauseScreen/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_o8rgy")
-
-[node name="ButtonQuit" type="Button" parent="UI/PauseScreen/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Quit"
 
 [node name="GameOverScreen" type="ColorRect" parent="UI"]
 visible = false
@@ -365,16 +345,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Play Again"
 
-[node name="HSeparator3" type="HSeparator" parent="UI/GameOverScreen/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_o8rgy")
-
-[node name="ButtonQuit" type="Button" parent="UI/GameOverScreen/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Quit"
-
 [node name="Audio" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="Audio"]
@@ -396,8 +366,5 @@ bus = &"Fx"
 [connection signal="body_entered" from="Boundaries/Bottom" to="." method="_on_collision"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/StartScreen/CenterContainer/PanelContainer/VBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
-[connection signal="pressed" from="UI/StartScreen/CenterContainer/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="UI/PauseScreen/CenterContainer/PanelContainer/VBoxContainer/ButtonResume" to="." method="_on_button_resume_pressed"]
-[connection signal="pressed" from="UI/PauseScreen/CenterContainer/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="UI/GameOverScreen/CenterContainer/PanelContainer/VBoxContainer/ButtonPlayAgain" to="." method="_on_button_play_again_pressed"]
-[connection signal="pressed" from="UI/GameOverScreen/CenterContainer/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

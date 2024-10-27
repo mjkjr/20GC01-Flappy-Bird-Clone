@@ -27,11 +27,6 @@ func _process(delta: float) -> void:
 			pause()
 		elif game_state == GameState.PAUSED:
 			unpause()
-		elif (
-				game_state == GameState.OPENING
-				or game_state == GameState.GAMEOVER
-		):
-			get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	
 	# Background parallax effect:
 	if game_state == GameState.PLAYING:
@@ -175,10 +170,6 @@ func _on_collision(_body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	spawn_obstacle()	
-
-
-func _on_button_quit_pressed() -> void:
-	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 
 func _on_button_play_pressed() -> void:
