@@ -1,6 +1,6 @@
 extends Node2D
 
-enum GameState { OPENING, PLAYING, PAUSED, GAMEOVER, RESTARTING }
+enum GameState { OPENING, PLAYING, PAUSED, CREDITS, GAMEOVER, RESTARTING }
 
 const OBSTACLE = preload("res://obstacle.tscn")
 
@@ -16,6 +16,9 @@ func _ready() -> void:
 	game_state = GameState.OPENING
 	$Player.process_mode = PROCESS_MODE_DISABLED
 	load_high_score()
+	var version  = ProjectSettings.get_setting("application/config/version")
+	if version != null:
+		%LabelVersion.text = version
 
 
 func _process(delta: float) -> void:
@@ -26,7 +29,10 @@ func _process(delta: float) -> void:
 		if game_state == GameState.PLAYING:
 			pause()
 		elif game_state == GameState.PAUSED:
-			unpause()
+			if $UI/CreditsScreen.visible == false:
+				unpause()
+		if $UI/CreditsScreen.visible == true:
+			credits_close()
 	
 	# Background parallax effect:
 	if game_state == GameState.PLAYING:
@@ -157,6 +163,16 @@ func set_high_score(num: int) -> void:
 	%HighScore.text = strHighScore
 
 
+func credits_open() -> void:
+	$Audio/PopupOpen.play()
+	$UI/CreditsScreen.visible = true
+
+
+func credits_close() -> void:
+	$Audio/PopupClose.play()
+	$UI/CreditsScreen.visible = false
+
+
 func _on_score(_body: Node2D) -> void:
 	increment_score(100)
 	if score > high_score:
@@ -182,3 +198,11 @@ func _on_button_resume_pressed() -> void:
 
 func _on_button_play_again_pressed() -> void:
 	restart()
+
+
+func _on_button_credits_pressed() -> void:
+	credits_open()
+
+
+func _on_button_dismiss_credits_pressed() -> void:
+	credits_close()

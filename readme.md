@@ -19,4 +19,5 @@ https://mjkjr.itch.io/buzzy-bee-flappy-bird-clone
 - Sprites: [Game Developer Studio](https://www.gamedeveloperstudio.com/)
 - Fonts: [Font Squirrel](https://www.fontsquirrel.com/)
 - Music & SFX: [JDSherbert](https://jdsherbert.itch.io/terms-and-conditions)
+- Special Thanks: [Matthew S](https://20_games_challenge.gitlab.io/)
 
