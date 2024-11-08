@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhnil43uuy0kv"]
+[gd_scene load_steps=21 format=3 uid="uid://bhnil43uuy0kv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_m0mjo"]
 [ext_resource type="Texture2D" uid="uid://e4x04pcmxbq7" path="res://assets/bg/mountains_farground.png" id="2_scdce"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cvdxcg0r1sef7" path="res://assets/audio/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="10_r3d1e"]
 [ext_resource type="AudioStream" uid="uid://bbj5iivslrgsi" path="res://assets/audio/JDSherbert - Ultimate UI SFX Pack - Swipe - 2.wav" id="11_2uncb"]
 [ext_resource type="AudioStream" uid="uid://ca0roxp444x8i" path="res://assets/audio/JDSherbert - Ultimate UI SFX Pack - Cancel - 2.wav" id="12_jorwa"]
+[ext_resource type="AudioStream" uid="uid://bwbobnji8jpab" path="res://assets/audio/buzz.wav" id="13_oq6wo"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fljj0"]
 a = Vector2(0, -10)
@@ -440,6 +441,7 @@ text = "• Design: Michael J. Kozubal Jr. (mjkjr.itch.io)
 • Sprites: Game Developer Studio (gamedeveloperstudio.com)
 • Fonts: Font Squirrel (fontsquirrel.com)
 • Music & SFX: JDSherbert (jdsherbert.itch.io)
+• Bee Sound Effect: Aurelia Kozubal
 • Special Thanks: Matthew S (20_games_challenge.gitlab.io)"
 
 [node name="HSeparator2" type="HSeparator" parent="UI/CreditsScreen/CenterContainer/PanelContainer/VBoxContainer"]
@@ -470,7 +472,12 @@ bus = &"Fx"
 stream = ExtResource("12_jorwa")
 bus = &"Fx"
 
+[node name="Buzz" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_oq6wo")
+bus = &"Fx"
+
 [connection signal="body_entered" from="Boundaries/Bottom" to="." method="_on_collision"]
+[connection signal="flap" from="Player" to="." method="_on_player_flap"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/StartScreen/CenterContainer/PanelContainer/VBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="UI/StartScreen/CenterContainer/PanelContainer/VBoxContainer/ButtonCredits" to="." method="_on_button_credits_pressed"]

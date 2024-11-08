@@ -89,6 +89,7 @@ func start() -> void:
 
 func game_over() -> void:
 	game_state = GameState.GAMEOVER
+	$Audio/Buzz.stop()
 	$Audio/Fail.play()
 	$Timer.stop()
 	$UI/GameOverScreen.visible = true
@@ -206,3 +207,8 @@ func _on_button_credits_pressed() -> void:
 
 func _on_button_dismiss_credits_pressed() -> void:
 	credits_close()
+
+
+func _on_player_flap() -> void:
+	if $Audio/Buzz.playing != true:
+		$Audio/Buzz.play()
